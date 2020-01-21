@@ -7,11 +7,12 @@
     <parent>
         <groupId>org.sakaiproject</groupId>
         <artifactId>master</artifactId>
-        <version>13-SNAPSHOT</version>
+        <version>21-SNAPSHOT</version>
     </parent>
 
     <groupId>org.sakaiproject.widget</groupId>
     <artifactId>sakai-widget-base</artifactId>
+    <version>21-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -101,7 +102,7 @@
             <dependency>
                 <groupId>org.sakaiproject.widget</groupId>
                 <artifactId>sakai-widget-api</artifactId>
-                <version>13-SNAPSHOT</version>
+                <version>${project.version}</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>

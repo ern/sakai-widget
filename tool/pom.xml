@@ -4,7 +4,7 @@
 	<parent>
         <groupId>org.sakaiproject.widget</groupId>
         <artifactId>sakai-widget-base</artifactId>
-        <version>13-SNAPSHOT</version>
+        <version>21-SNAPSHOT</version>
     </parent>
 
 	<artifactId>sakai-widget-tool</artifactId>
@@ -13,7 +13,6 @@
 	<name>sakai-widget-tool</name>
 
 	<properties>
-        <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
 	</properties>
@@ -26,8 +25,6 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
-			<scope>provided</scope>
 		</dependency>
 		<!-- third party dependencies -->
     	<dependency>
@@ -65,17 +62,17 @@
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
-			<version>${thymeleaf.version}</version>
+			<version>3.0.11.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>
-			<version>${thymeleaf.version}</version>
+			<version>3.0.11.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-java8time</artifactId>
-			<version>3.0.1.RELEASE</version>
+			<version>3.0.4.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>
