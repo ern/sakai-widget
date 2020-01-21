@@ -11,7 +11,7 @@
     <context:component-scan base-package="org.sakaiproject.widget"/>
     <tx:annotation-driven transaction-manager="org.sakaiproject.springframework.orm.hibernate.GlobalTransactionManager"/>
 
-    <bean id="org.sakaiproject.springframework.orm.hibernate.impl.AdditionalHibernateMappings.assignment"
+    <bean id="org.sakaiproject.springframework.orm.hibernate.impl.AdditionalHibernateMappings.widget"
           class="org.sakaiproject.springframework.orm.hibernate.impl.AdditionalHibernateMappingsImpl">
         <property name="annotatedClasses">
             <list>
