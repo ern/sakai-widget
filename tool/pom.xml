@@ -59,6 +59,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
+			<scope>compile</scope>
 		</dependency>
 		<!-- thymeleaf template engine -->
 		<dependency>
