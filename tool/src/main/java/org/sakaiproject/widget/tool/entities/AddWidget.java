@@ -21,5 +21,5 @@ import java.time.Instant;
 public class AddWidget {
 	private String title;
 	private String description;
-	private Instant expiration;
+	private Instant expiration = Instant.now();
 }

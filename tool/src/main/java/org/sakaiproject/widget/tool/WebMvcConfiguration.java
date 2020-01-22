@@ -1,6 +1,7 @@
 package org.sakaiproject.widget.tool;
 
-import lombok.Setter;
+import java.time.Instant;
+
 import org.sakaiproject.widget.tool.formatter.DateTimeLocalFormatter;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -22,30 +23,16 @@ import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
 
+import lombok.Setter;
+
 @Configuration
 @EnableWebMvc
-@ComponentScan("org.sakaiproject.widget.tool")
-public class SpringMvcConfiguration extends WebMvcConfigurerAdapter implements ApplicationContextAware {
+@ComponentScan
+public class WebMvcConfiguration extends WebMvcConfigurerAdapter implements ApplicationContextAware {
+
+    private static final String UTF8 = "UTF-8";
 
     @Setter private ApplicationContext applicationContext;
-
-    @Bean
-    public ViewResolver viewResolver() {
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setTemplateEngine(templateEngine());
-        resolver.setCharacterEncoding("UTF-8");
-        return resolver;
-    }
-
-    @Bean
-    public TemplateEngine templateEngine() {
-        SpringTemplateEngine engine = new SpringTemplateEngine();
-        engine.setEnableSpringELCompiler(true);
-        engine.addDialect(new Java8TimeDialect());
-        engine.setTemplateResolver(templateResolver());
-        engine.setTemplateEngineMessageSource(messageSource());
-        return engine;
-    }
 
     @Bean(name = "org.sakaiproject.widget.tool.Messages")
     public MessageSource messageSource() {
@@ -54,18 +41,35 @@ public class SpringMvcConfiguration extends WebMvcConfigurerAdapter implements A
         return messages;
     }
 
-    @Bean(name = "datetime-local")
-    public Formatter dateTimeFormatter() {
-        return new DateTimeLocalFormatter();
+    @Bean
+    public ViewResolver viewResolver() {
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(templateEngine());
+        viewResolver.setCharacterEncoding(UTF8);
+        return viewResolver;
+    }
+
+    private TemplateEngine templateEngine() {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setEnableSpringELCompiler(true);
+        templateEngine.addDialect(new Java8TimeDialect());
+        templateEngine.setMessageSource(messageSource());
+        templateEngine.setTemplateResolver(templateResolver());
+        return templateEngine;
     }
 
     private ITemplateResolver templateResolver() {
-        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-        resolver.setApplicationContext(applicationContext);
-        resolver.setPrefix("/WEB-INF/templates/");
-        resolver.setSuffix(".html");
-        resolver.setTemplateMode(TemplateMode.HTML);
-        return resolver;
+        SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
+        templateResolver.setApplicationContext(applicationContext);
+        templateResolver.setPrefix("/WEB-INF/templates/");
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        return templateResolver;
+    }
+
+    @Bean(name = "dateTimeLocalFormatter")
+    public Formatter dateTimeLocalFormatter() {
+        return new DateTimeLocalFormatter();
     }
 
     @Override
@@ -77,7 +81,8 @@ public class SpringMvcConfiguration extends WebMvcConfigurerAdapter implements A
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addFormatter(dateTimeFormatter());
+        registry.addFormatterForFieldType(Instant.class, dateTimeLocalFormatter());
         super.addFormatters(registry);
     }
+
 }

@@ -4,11 +4,11 @@
 <body>
 
 <head th:fragment="head">
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/theme.blue.min.css}"/>
-    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/widget.css}"/>
-    <script type="text/javascript" src="/library/js/headscripts.js"></script>
-    <script type="text/javascript">includeLatestJQuery('sakai.widget');</script>
-    <script type="text/javascript">includeWebjarLibrary('jquery.tablesorter');</script>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/theme.blue.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/widget.css}" />
+    <script src="/library/js/headscripts.js"></script>
+    <script>includeLatestJQuery('sakai.widget');</script>
+    <script>includeWebjarLibrary('jquery.tablesorter');</script>
     <title th:text="#{common.title}">Sakai Widget Tool</title>
 </head>
 
