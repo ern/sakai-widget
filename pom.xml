@@ -7,22 +7,21 @@
     <parent>
         <groupId>org.sakaiproject</groupId>
         <artifactId>master</artifactId>
-        <version>21-SNAPSHOT</version>
+        <version>22-SNAPSHOT</version>
     </parent>
 
     <groupId>org.sakaiproject.widget</groupId>
-    <artifactId>sakai-widget-base</artifactId>
-    <version>21-SNAPSHOT</version>
+    <artifactId>sakai-widget-project</artifactId>
+    <version>22-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>api</module>
-        <module>impl</module>
-        <module>tool</module>
+        <module>spring-mvc-thymeleaf</module>
+        <module>spring-mvc-webcomponent</module>
     </modules>
 
-    <name>sakai-widget-base</name>
-    <description>A Sakai Spring MVC project using Thymeleaf</description>
+    <name>sakai-widget-project</name>
+    <description>Collection of example tools for the Sakai LMS</description>
     <url>https://github.com/ern/sakai-widget</url>
     <inceptionYear>2018</inceptionYear>
 
@@ -71,40 +70,19 @@
             <timezone>-5</timezone>
             <properties/>
         </developer>
+        <developer>
+            <id>adrianfish</id>
+            <name>Adrian Fish</name>
+            <email>adrian@longsight.com</email>
+            <url>https://github.com/adrianfish</url>
+            <organization>Longsight</organization>
+            <organizationUrl>http://www.longsight.com</organizationUrl>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+0</timezone>
+            <properties/>
+        </developer>
     </developers>
 
-    <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
-        <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
-        <testSourceDirectory>src/test/java</testSourceDirectory>
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
-        <plugins>
-            <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.sakaiproject.widget</groupId>
-                <artifactId>sakai-widget-api</artifactId>
-                <version>${project.version}</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>

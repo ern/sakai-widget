@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
         <groupId>org.sakaiproject.widget</groupId>
-        <artifactId>sakai-widget-base</artifactId>
-        <version>21-SNAPSHOT</version>
+        <artifactId>sakai-widget-webcomponent</artifactId>
+        <version>22-SNAPSHOT</version>
     </parent>
 
-	<artifactId>sakai-widget-tool</artifactId>
+	<artifactId>sakai-widget-webcomponent-tool</artifactId>
 	<packaging>war</packaging>
 
-	<name>sakai-widget-tool</name>
+	<name>sakai-widget-webcomponent-tool</name>
 
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
@@ -20,7 +20,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.sakaiproject.widget</groupId>
-			<artifactId>sakai-widget-api</artifactId>
+			<artifactId>sakai-widget-webcomponent-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>

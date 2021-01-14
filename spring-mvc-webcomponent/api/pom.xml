@@ -6,14 +6,14 @@
 
     <parent>
         <groupId>org.sakaiproject.widget</groupId>
-        <artifactId>sakai-widget-base</artifactId>
-        <version>21-SNAPSHOT</version>
+        <artifactId>sakai-widget-webcomponent</artifactId>
+        <version>22-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sakai-widget-api</artifactId>
+    <artifactId>sakai-widget-webcomponent-api</artifactId>
     <packaging>jar</packaging>
 
-    <name>sakai-widget-api</name>
+    <name>sakai-widget-webcomponent-api</name>
 
     <properties>
         <deploy.target>shared</deploy.target>

@@ -7,16 +7,20 @@
 
     <parent>
         <groupId>org.sakaiproject.widget</groupId>
-        <artifactId>sakai-widget-base</artifactId>
-        <version>21-SNAPSHOT</version>
+        <artifactId>sakai-widget-thymeleaf</artifactId>
+        <version>22-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sakai-widget-impl</artifactId>
+    <artifactId>sakai-widget-thymeleaf-impl</artifactId>
     <packaging>sakai-component</packaging>
 
-    <name>sakai-widget-impl</name>
+    <name>sakai-widget-thymeleaf-impl</name>
 
     <dependencies>
+        <dependency>
+            <groupId>org.sakaiproject.kernel</groupId>
+            <artifactId>sakai-kernel-api</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.sakaiproject.kernel</groupId>
             <artifactId>sakai-kernel-private</artifactId>
@@ -27,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>org.sakaiproject.widget</groupId>
-            <artifactId>sakai-widget-api</artifactId>
+            <artifactId>sakai-widget-thymeleaf-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
